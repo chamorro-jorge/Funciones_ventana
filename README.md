@@ -5,6 +5,9 @@ Se muestra de manera práctica, como a partir de una tabla se puede adjuntar los
 
 
 Total de la producción diaria de la planta → prod_dia_tot
+
 Total de la producción diaria por sección → prod_dia_sec
+
 Mostrar el porcentaje de producción de cada uno de los empleados en cada sección y día → perc_dia_sec
+
 Ordenar dentro de cada sección a los empleados en función de su producción → rank_dia_sec
