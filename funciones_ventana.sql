@@ -27,6 +27,8 @@ SELECT
 	empleado, 
 	seccion, 
 	produccion,
-	sum(produccion) over(partition by dia, seccion) as prod_dia_sec,
-	sum(produccion) over(partition by dia) as prod_dia_tot
-FROM plantas.registro_produccion;
+	RANK() OVER(PARTITION BY dia, seccion ORDER BY produccion DESC) AS rank_dia_sec,
+	round(produccion /SUM(produccion) OVER(PARTITION BY dia, seccion),4)*100 as perc_dia_sec,
+	SUM(produccion) OVER(PARTITION BY dia, seccion) AS prod_dia_sec,
+	SUM(produccion) OVER(PARTITION BY dia) AS prod_dia_tot
+FROM registro_produccion;
